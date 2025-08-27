@@ -1,102 +1,106 @@
-# **Excel ÅäÖÃ±àÒë¹¤¾ß (Excel to DLL Configuration Compiler)**
+# **Excel é…ç½®ç¼–è¯‘å·¥å…· (Excel to DLL Configuration Compiler)**
 
-## **ÏîÄ¿¼ò½é**
+## **é¡¹ç›®ç®€ä»‹**
 
-±¾ÏîÄ¿ÊÇÒ»¸öÇ¿´óµÄ .NET ÃüÁîÐÐ¹¤¾ß£¬Ö¼ÔÚ½«¸´ÔÓµÄ Excel ÅäÖÃÎÄ¼þ£¨.xlsx/.xls£©Ö±½Ó±àÒë³ÉÒ»¸öÀàÐÍ°²È«¡¢Ò×ÓÚÊ¹ÓÃ¡¢ÁãÒÀÀµµÄ **.NET Standard 2.1 DLL**¡£
+æœ¬é¡¹ç›®æ˜¯ä¸€ä¸ªå¼ºå¤§çš„ .NET å‘½ä»¤è¡Œå·¥å…·ï¼Œæ—¨åœ¨å°†å¤æ‚çš„ Excel é…ç½®æ–‡ä»¶ï¼ˆ.xlsx/.xlsï¼‰ç›´æŽ¥ç¼–è¯‘æˆä¸€ä¸ªç±»åž‹å®‰å…¨ã€æ˜“äºŽä½¿ç”¨ã€é›¶ä¾èµ–çš„ **.NET Standard 2.1 DLL**ã€‚
 
-ÔÚÓÎÏ·¿ª·¢ºÍÐèÒªÆµ·±µ÷ÕûÅäÖÃµÄÓ¦ÓÃ³ÌÐòÖÐ£¬´«Í³µÄÊÖ¶¯¸´ÖÆÕ³Ìù»ò±àÐ´½âÎö´úÂëµÄ·½Ê½Ð§ÂÊµÍÏÂÇÒÈÝÒ×³ö´í¡£±¾¹¤¾ß½«Õû¸öÁ÷³Ì×Ô¶¯»¯£¬ÈÃ¿ª·¢Õß¿ÉÒÔ×¨×¢ÓÚÒµÎñÂß¼­£¬Í¬Ê±Îª²ß»®ºÍÔËÓªÈËÔ±Ìá¹©ËûÃÇÊìÏ¤µÄ Excel ×÷ÎªÅäÖÃ¹¤¾ß¡£
+åœ¨æ¸¸æˆå¼€å‘å’Œéœ€è¦é¢‘ç¹è°ƒæ•´é…ç½®çš„åº”ç”¨ç¨‹åºä¸­ï¼Œä¼ ç»Ÿçš„æ‰‹åŠ¨å¤åˆ¶ç²˜è´´æˆ–ç¼–å†™è§£æžä»£ç çš„æ–¹å¼æ•ˆçŽ‡ä½Žä¸‹ä¸”å®¹æ˜“å‡ºé”™ã€‚æœ¬å·¥å…·å°†æ•´ä¸ªæµç¨‹è‡ªåŠ¨åŒ–ï¼Œè®©å¼€å‘è€…å¯ä»¥ä¸“æ³¨äºŽä¸šåŠ¡é€»è¾‘ï¼ŒåŒæ—¶ä¸ºç­–åˆ’å’Œè¿è¥äººå‘˜æä¾›ä»–ä»¬ç†Ÿæ‚‰çš„ Excel ä½œä¸ºé…ç½®å·¥å…·ã€‚
 
-## **¹¦ÄÜÌØÐÔ**
+## **åŠŸèƒ½ç‰¹æ€§**
 
-* **¶¯Ì¬½âÎö¶à¼¶±íÍ·**£ºÄÜ×¼È·Ê¶±ð¸´ÔÓµÄ Excel ±íÍ·½á¹¹£¬°üÀ¨ºÏ²¢µ¥Ôª¸ñ´ú±íµÄÇ¶Ì×¶ÔÏóºÍÁÐ±í¡£  
-* **×Ô¶¯Éú³É C\# Àà**£º¸ù¾Ý±íÍ·½á¹¹×Ô¶¯Éú³É¶ÔÓ¦µÄÇ¿ÀàÐÍ C\# Êý¾ÝÀà¡£  
-* **ÀàÐÍ°²È«**£ºÉú³ÉµÄ DataManager Ìá¹©ÀàÐÍ°²È«µÄÊý¾Ý·ÃÎÊ½Ó¿Ú£¬¶Å¾øÒòÊÖÎóÐ´´í×Ö¶ÎÃû»òÀàÐÍ×ª»»´íÎóµ¼ÖÂµÄ Bug¡£  
-* **±àÒëÎª DLL**£º½«Éú³ÉµÄ C\# ÀàºÍ JSON Êý¾ÝÖ±½Ó±àÒë³ÉÒ»¸ö¶ÀÁ¢µÄ .NET Standard 2.1 DLL£¬·½±ãÔÚÈÎºÎ .NET ÏîÄ¿ÖÐÒýÓÃ¡£  
-* **Ç¶Èë JSON Êý¾Ý**£ºÔÚ±àÒëÊ±£¬½« Excel ÖÐµÄÊý¾Ý×ª»»Îª JSON ²¢×÷ÎªÄÚÇ¶×ÊÔ´´ò°ü½ø DLL£¬ÊµÏÖÊý¾ÝµÄ×Ô°üº¬¡£  
-* **Éú³É XML ÎÄ¼þ×¢ÊÍ**£º½« Excel ±íÍ·ÖÐµÄ×¢ÊÍÐÐ±àÒëÎª XML ÎÄ¼þ×¢ÊÍ£¬ÔÚ Visual Studio ÖÐÌá¹©ÍêÕûµÄ IntelliSense ÖÇÄÜÌáÊ¾¡£  
-* **Áé»îµÄÊý¾Ý¼ÓÔØ**£ºÉú³ÉµÄ DataManager Ö§³Ö´Ó DLL ÄÚÇ¶×ÊÔ´»òÍâ²¿ÎÄ¼þ¼ÐÁ½ÖÖÄ£Ê½¼ÓÔØÅäÖÃ£¬·½±ã¿ª·¢µ÷ÊÔºÍ²¿Êð¡£  
-* **ÒÀÀµ×¢Èë½âÎö**£ºDataManager Óë¾ßÌåµÄ JSON ½âÎö¿â½âñî£¬ÔÊÐíÓÃ»§ÔÚÖ÷ÏîÄ¿ÖÐÌá¹©×Ô¼ºµÄ½âÎö»Øµ÷º¯Êý¡£  
-* **Íâ²¿»¯ÅäÖÃ**£º¹¤¾ß±¾ÉíµÄËùÓÐÂ·¾¶ºÍÉèÖÃ¾ùÓÉ AppConfig.xml ¿ØÖÆ£¬ÎÞÐèÐÞ¸Ä´úÂë¡£
+* **åŠ¨æ€è§£æžå¤šçº§è¡¨å¤´**ï¼šèƒ½å‡†ç¡®è¯†åˆ«å¤æ‚çš„ Excel è¡¨å¤´ç»“æž„ï¼ŒåŒ…æ‹¬åˆå¹¶å•å…ƒæ ¼ä»£è¡¨çš„åµŒå¥—å¯¹è±¡å’Œåˆ—è¡¨ã€‚  
+* **è‡ªåŠ¨ç”Ÿæˆ C\# ç±»**ï¼šæ ¹æ®è¡¨å¤´ç»“æž„è‡ªåŠ¨ç”Ÿæˆå¯¹åº”çš„å¼ºç±»åž‹ C\# æ•°æ®ç±»ã€‚  
+* **ç±»åž‹å®‰å…¨**ï¼šç”Ÿæˆçš„ DataManager æä¾›ç±»åž‹å®‰å…¨çš„æ•°æ®è®¿é—®æŽ¥å£ï¼Œæœç»å› æ‰‹è¯¯å†™é”™å­—æ®µåæˆ–ç±»åž‹è½¬æ¢é”™è¯¯å¯¼è‡´çš„ Bugã€‚  
+* **ç¼–è¯‘ä¸º DLL**ï¼šå°†ç”Ÿæˆçš„ C\# ç±»å’Œ JSON æ•°æ®ç›´æŽ¥ç¼–è¯‘æˆä¸€ä¸ªç‹¬ç«‹çš„ .NET Standard 2.1 DLLï¼Œæ–¹ä¾¿åœ¨ä»»ä½• .NET é¡¹ç›®ä¸­å¼•ç”¨ã€‚  
+* **åµŒå…¥ JSON æ•°æ®**ï¼šåœ¨ç¼–è¯‘æ—¶ï¼Œå°† Excel ä¸­çš„æ•°æ®è½¬æ¢ä¸º JSON å¹¶ä½œä¸ºå†…åµŒèµ„æºæ‰“åŒ…è¿› DLLï¼Œå®žçŽ°æ•°æ®çš„è‡ªåŒ…å«ã€‚  
+* **ç”Ÿæˆ XML æ–‡ä»¶æ³¨é‡Š**ï¼šå°† Excel è¡¨å¤´ä¸­çš„æ³¨é‡Šè¡Œç¼–è¯‘ä¸º XML æ–‡ä»¶æ³¨é‡Šï¼Œåœ¨ Visual Studio ä¸­æä¾›å®Œæ•´çš„ IntelliSense æ™ºèƒ½æç¤ºã€‚  
+* **çµæ´»çš„æ•°æ®åŠ è½½**ï¼šç”Ÿæˆçš„ DataManager æ”¯æŒä»Ž DLL å†…åµŒèµ„æºæˆ–å¤–éƒ¨æ–‡ä»¶å¤¹ä¸¤ç§æ¨¡å¼åŠ è½½é…ç½®ï¼Œæ–¹ä¾¿å¼€å‘è°ƒè¯•å’Œéƒ¨ç½²ã€‚  
+* **ä¾èµ–æ³¨å…¥è§£æž**ï¼šDataManager ä¸Žå…·ä½“çš„ JSON è§£æžåº“è§£è€¦ï¼Œå…è®¸ç”¨æˆ·åœ¨ä¸»é¡¹ç›®ä¸­æä¾›è‡ªå·±çš„è§£æžå›žè°ƒå‡½æ•°ã€‚  
+* **å¤–éƒ¨åŒ–é…ç½®**ï¼šå·¥å…·æœ¬èº«çš„æ‰€æœ‰è·¯å¾„å’Œè®¾ç½®å‡ç”± AppConfig.xml æŽ§åˆ¶ï¼Œæ— éœ€ä¿®æ”¹ä»£ç ã€‚
 
-## **ÈçºÎÊ¹ÓÃ**
+## **å¦‚ä½•ä½¿ç”¨**
 
-#### **1\. »·¾³ÒªÇó**
+#### **1\. çŽ¯å¢ƒè¦æ±‚**
 
-* °²×° [.NET SDK](https://dotnet.microsoft.com/download) (ÍÆ¼ö .NET 8.0 »ò¸ü¸ß°æ±¾)¡£
+* å®‰è£… [.NET SDK](https://dotnet.microsoft.com/download) (æŽ¨è .NET 8.0 æˆ–æ›´é«˜ç‰ˆæœ¬)ã€‚
 
-#### **2\. ÉèÖÃ AppConfig.xml**
+#### **2\. è®¾ç½® AppConfig.xml**
 
-ÔÚ¹¤¾ßµÄÖ´ÐÐÄ¿Â¼ÏÂ£¬´´½¨²¢ÉèÖÃ AppConfig.xml£º
+åœ¨å·¥å…·çš„æ‰§è¡Œç›®å½•ä¸‹ï¼Œåˆ›å»ºå¹¶è®¾ç½® AppConfig.xmlï¼š
 
-\<?xml version="1.0" encoding="utf-8" ?\>  
-\<Configuration\>  
-  \<\!-- ÍÆ¼öÊ¹ÓÃÏà¶ÔÓÚ´Ë¹¤¾ß .exe µÄÏà¶ÔÂ·¾¶ \--\>  
-  \<Paths\>  
-    \<\!-- °üº¬ËùÓÐ .xlsx ÎÄ¼þµÄÊäÈëÎÄ¼þ¼Ð \--\>  
-    \<InputPath\>xlsx\</InputPath\>  
-    \<\!-- ËùÓÐÉú³ÉÎÄ¼þµÄ¸ùÊä³öÎÄ¼þ¼Ð \--\>  
-    \<OutputPath\>output\</OutputPath\>  
-  \</Paths\>  
-  \<Settings\>  
-    \<\!-- Éú³ÉµÄ DLL µÄ³ÌÐò¼¯Ãû³Æ£¬Ò²½«ÊÇ C\# ÀàµÄ¸ùÃüÃû¿Õ¼ä \--\>  
-    \<AssemblyName\>MyGame.Configs\</AssemblyName\>  
-  \</Settings\>  
-\</Configuration\>
+```
+<?xml version="1.0" encoding="utf-8" ?>  
+<Configuration>  
+  <!-- æŽ¨èä½¿ç”¨ç›¸å¯¹äºŽæ­¤å·¥å…· .exe çš„ç›¸å¯¹è·¯å¾„ -->  
+  <Paths>  
+    <!-- åŒ…å«æ‰€æœ‰ .xlsx æ–‡ä»¶çš„è¾“å…¥æ–‡ä»¶å¤¹ -->  
+    <InputPath>xlsx</InputPath>  
+    <!-- æ‰€æœ‰ç”Ÿæˆæ–‡ä»¶çš„æ ¹è¾“å‡ºæ–‡ä»¶å¤¹ -->  
+    <OutputPath>output</OutputPath>  
+  </Paths>  
+  <Settings>  
+    <!-- ç”Ÿæˆçš„ DLL çš„ç¨‹åºé›†åç§°ï¼Œä¹Ÿå°†æ˜¯ C# ç±»çš„æ ¹å‘½åç©ºé—´ -->  
+    <AssemblyName>MyGame.Configs</AssemblyName>  
+  </Settings>  
+</Configuration>
 
-#### **3\. Excel ±í¸ñ¹æ·¶**
+```
 
-ÎªÁËÈÃ¹¤¾ßÄÜÕýÈ·½âÎö£¬ÄúµÄ Excel ±í¸ñÐèÒª×ñÑ­ÒÔÏÂ**ËÄÐÐ±íÍ·**½á¹¹£º
+#### **3\. Excel è¡¨æ ¼è§„èŒƒ**
 
-| µÚ N ÐÐ | Ä¿µÄ | Ê¾Àý |
+ä¸ºäº†è®©å·¥å…·èƒ½æ­£ç¡®è§£æžï¼Œæ‚¨çš„ Excel è¡¨æ ¼éœ€è¦éµå¾ªä»¥ä¸‹**å››è¡Œè¡¨å¤´**ç»“æž„ï¼š
+
+| ç¬¬ N è¡Œ | ç›®çš„ | ç¤ºä¾‹ |
 | :---- | :---- | :---- |
-| **µÚ 1 ÐÐ** | **½á¹¹¶¨Òå (ÉÏ)** | Id, Name, BaseProperty (ºÏ²¢µ¥Ôª¸ñ), Skills (ºÏ²¢µ¥Ôª¸ñ) |
-| **µÚ 2 ÐÐ** | **½á¹¹¶¨Òå (ÏÂ)** | (IdÏÂÎª¿Õ), (NameÏÂÎª¿Õ), Hp, Attack, Name, Level, Name, Level |
-| **µÚ 3 ÐÐ** | **ÀàÐÍ¶¨Òå** | int, string, int, int, string, int, string, int |
-| **µÚ 4 ÐÐ** | **×¢ÊÍ/ËµÃ÷** | Î¨Ò»ID, Ãû×Ö, ÉúÃüÖµ, ¹¥»÷Á¦, ¼¼ÄÜÃû³Æ, ¼¼ÄÜµÈ¼¶, ¼¼ÄÜÃû³Æ, ¼¼ÄÜµÈ¼¶ |
-| **µÚ 5 ÐÐ** | **Êý¾Ý¿ªÊ¼** | 1001, Ð¡»ðÁú, 100, 10, »ð»¨, 1, ×¥, 1 |
+| **ç¬¬ 1 è¡Œ** | **ç»“æž„å®šä¹‰ (ä¸Š)** | Id, Name, BaseProperty (åˆå¹¶å•å…ƒæ ¼), Skills (åˆå¹¶å•å…ƒæ ¼) |
+| **ç¬¬ 2 è¡Œ** | **ç»“æž„å®šä¹‰ (ä¸‹)** | (Idä¸‹ä¸ºç©º), (Nameä¸‹ä¸ºç©º), Hp, Attack, Name, Level, Name, Level |
+| **ç¬¬ 3 è¡Œ** | **ç±»åž‹å®šä¹‰** | int, string, int, int, string, int, string, int |
+| **ç¬¬ 4 è¡Œ** | **æ³¨é‡Š/è¯´æ˜Ž** | å”¯ä¸€ID, åå­—, ç”Ÿå‘½å€¼, æ”»å‡»åŠ›, æŠ€èƒ½åç§°, æŠ€èƒ½ç­‰çº§, æŠ€èƒ½åç§°, æŠ€èƒ½ç­‰çº§ |
+| **ç¬¬ 5 è¡Œ** | **æ•°æ®å¼€å§‹** | 1001, å°ç«é¾™, 100, 10, ç«èŠ±, 1, æŠ“, 1 |
 
-* **µ¥Ò»Öµ**£º±íÍ·Ö»Õ¼Ò»ÁÐ (Èç Id, Name)¡£  
-* **Ç¶Ì×¶ÔÏó**£º±íÍ·ÎªºÏ²¢µ¥Ôª¸ñ£¬ÆäÏÂ·½¶¨ÒåÁË¶ÔÏóµÄ¸÷¸öÊôÐÔ (Èç BaseProperty \-\> Hp, Attack)¡£  
-* **¶ÔÏóÁÐ±í**£º±íÍ·ÎªºÏ²¢µ¥Ôª¸ñ£¬ÆäÏÂ·½ÊÇÖØ¸´µÄ¶ÔÏó½á¹¹ (Èç Skills \-\> Name, Level, Name, Level...)¡£  
-* **¼òµ¥ÀàÐÍÁÐ±í**£º±íÍ·ÎªºÏ²¢µ¥Ôª¸ñ£¬ÆäÏÂ·½ÊÇÖØ¸´µÄÍ¬Ãû¼òµ¥ÊôÐÔ (Èç LiveScene \-\> Scene, Scene...)¡£
+* **å•ä¸€å€¼**ï¼šè¡¨å¤´åªå ä¸€åˆ— (å¦‚ Id, Name)ã€‚  
+* **åµŒå¥—å¯¹è±¡**ï¼šè¡¨å¤´ä¸ºåˆå¹¶å•å…ƒæ ¼ï¼Œå…¶ä¸‹æ–¹å®šä¹‰äº†å¯¹è±¡çš„å„ä¸ªå±žæ€§ (å¦‚ BaseProperty \-\> Hp, Attack)ã€‚  
+* **å¯¹è±¡åˆ—è¡¨**ï¼šè¡¨å¤´ä¸ºåˆå¹¶å•å…ƒæ ¼ï¼Œå…¶ä¸‹æ–¹æ˜¯é‡å¤çš„å¯¹è±¡ç»“æž„ (å¦‚ Skills \-\> Name, Level, Name, Level...)ã€‚  
+* **ç®€å•ç±»åž‹åˆ—è¡¨**ï¼šè¡¨å¤´ä¸ºåˆå¹¶å•å…ƒæ ¼ï¼Œå…¶ä¸‹æ–¹æ˜¯é‡å¤çš„åŒåç®€å•å±žæ€§ (å¦‚ LiveScene \-\> Scene, Scene...)ã€‚
 
-#### **4\. ÔËÐÐ¹¤¾ß**
+#### **4\. è¿è¡Œå·¥å…·**
 
-½«ÄúµÄ Excel ÎÄ¼þ£¨Sheet Ò³Ãû³ÆÐèÒÔ \_Table ½áÎ²£¬Èç Boss\_Table.xlsx£©·ÅÈë AppConfig.xml ÖÐÖ¸¶¨µÄ InputPath ÎÄ¼þ¼ÐÄÚ¡£  
-È»ºóÖ´ÐÐ¹¤¾ß£º  
+å°†æ‚¨çš„ Excel æ–‡ä»¶ï¼ˆSheet é¡µåç§°éœ€ä»¥ \_Table ç»“å°¾ï¼Œå¦‚ Boss\_Table.xlsxï¼‰æ”¾å…¥ AppConfig.xml ä¸­æŒ‡å®šçš„ InputPath æ–‡ä»¶å¤¹å†…ã€‚  
+ç„¶åŽæ‰§è¡Œå·¥å…·ï¼š  
 dotnet run
 
-»òÖ±½ÓÖ´ÐÐ±àÒëºÃµÄ .exe ÎÄ¼þ¡£
+æˆ–ç›´æŽ¥æ‰§è¡Œç¼–è¯‘å¥½çš„ .exe æ–‡ä»¶ã€‚
 
-¹¤¾ß½«ÔÚ OutputPath ÖÐÉú³É DLL¡¢Schemas ºÍ Json ÎÄ¼þ¼Ð¡£
+å·¥å…·å°†åœ¨ OutputPath ä¸­ç”Ÿæˆ DLLã€Schemas å’Œ Json æ–‡ä»¶å¤¹ã€‚
 
-#### **5\. ÔÚÏîÄ¿ÖÐÊ¹ÓÃÉú³ÉµÄ DLL**
+#### **5\. åœ¨é¡¹ç›®ä¸­ä½¿ç”¨ç”Ÿæˆçš„ DLL**
 
-1. **ÒýÓÃ DLL**£º½« output/DLL/ Ä¿Â¼ÏÂµÄ MyGame.Configs.dll ºÍ MyGame.Configs.xml ¸´ÖÆµ½ÄúµÄÖ÷ÏîÄ¿ÖÐ£¬²¢Ìí¼Ó¶Ô DLL µÄÒýÓÃ¡£  
-2. **±àÐ´¼ÓÔØ´úÂë**£ºÔÚÄúµÄÖ÷ÏîÄ¿ÖÐ£¬Ê¹ÓÃ DeserializerFactory ¸¨ÖúÀà£¨¿É´Ó¹¤¾ßµÄÒì³£ÐÅÏ¢ÖÐ¸´ÖÆ£¬»òÔ¤ÏÈ¼ÓÈëÏîÄ¿£©À´¼ÓÔØÊý¾Ý¡£  
-   using MyGame.Configs; // ÒýÈëÉú³ÉµÄÃüÃû¿Õ¼ä  
+1. **å¼•ç”¨ DLL**ï¼šå°† output/DLL/ ç›®å½•ä¸‹çš„ MyGame.Configs.dll å’Œ MyGame.Configs.xml å¤åˆ¶åˆ°æ‚¨çš„ä¸»é¡¹ç›®ä¸­ï¼Œå¹¶æ·»åŠ å¯¹ DLL çš„å¼•ç”¨ã€‚  
+2. **ç¼–å†™åŠ è½½ä»£ç **ï¼šåœ¨æ‚¨çš„ä¸»é¡¹ç›®ä¸­ï¼Œä½¿ç”¨ DeserializerFactory è¾…åŠ©ç±»ï¼ˆå¯ä»Žå·¥å…·çš„å¼‚å¸¸ä¿¡æ¯ä¸­å¤åˆ¶ï¼Œæˆ–é¢„å…ˆåŠ å…¥é¡¹ç›®ï¼‰æ¥åŠ è½½æ•°æ®ã€‚  
+``` 
+   using MyGame.Configs;  
    using System.Reflection;
 
    public class GameInitializer  
    {  
        public void Initialize()  
        {  
-           // »ñÈ¡ÅäÖÃ DLL µÄ³ÌÐò¼¯  
-           var configAssembly \= typeof(DataManager).Assembly;
+           // èŽ·å–é…ç½® DLL çš„ç¨‹åºé›†  
+           var configAssembly = typeof(DataManager).Assembly;
 
-           // Ê¹ÓÃ¹¤³§·½·¨×Ô¶¯´´½¨ËùÓÐ±í¸ñµÄ JSON ½âÎöÆ÷  
-           var deserializers \= DeserializerFactory.CreateJsonDeserializersForAllTables(configAssembly, "MyGame.Configs");
+           // ä½¿ç”¨å·¥åŽ‚æ–¹æ³•è‡ªåŠ¨åˆ›å»ºæ‰€æœ‰è¡¨æ ¼çš„ JSON è§£æžå™¨  
+           var deserializers = DeserializerFactory.CreateJsonDeserializersForAllTables(configAssembly, "MyGame.Configs");
 
-           // ·½Ê½Ò»£º´Ó DLL ÄÚÇ¶×ÊÔ´¼ÓÔØ (ÓÃÓÚÕýÊ½·¢²¼)  
+           // æ–¹å¼ä¸€ï¼šä»Ž DLL å†…åµŒèµ„æºåŠ è½½ (ç”¨äºŽæ­£å¼å‘å¸ƒ)  
            DataManager.LoadAllFromEmbedded(configAssembly, deserializers);
 
-           // ·½Ê½¶þ£º´ÓÍâ²¿ÎÄ¼þ¼Ð¼ÓÔØ (ÓÃÓÚ¿ª·¢µ÷ÊÔ)  
-           // string configPath \= "path/to/your/json/files";  
+           // æ–¹å¼äºŒï¼šä»Žå¤–éƒ¨æ–‡ä»¶å¤¹åŠ è½½ (ç”¨äºŽå¼€å‘è°ƒè¯•)  
+           // string configPath = "path/to/your/json/files";  
            // DataManager.LoadAllFromDirectory(configPath, deserializers, ".json");
 
-           // \--- ¼ÓÔØÍê³É£¬¿ÉÒÔ°²È«Ê¹ÓÃÁË \---  
-           var boss \= DataManager.GetBossById(1001);  
-           if (boss \!= null)  
+           // --- åŠ è½½å®Œæˆï¼Œå¯ä»¥å®‰å…¨ä½¿ç”¨äº† ---  
+           var boss = DataManager.GetBossById(1001);  
+           if (boss != null)  
            {  
                Console.WriteLine($"Boss Name: {boss.Name}, HP: {boss.BaseProperty.Hp}");  
            }  
@@ -127,12 +131,13 @@ dotnet run
        }
    }
 
-## **ÏîÄ¿ÒÀÀµ**
+```
+## **é¡¹ç›®ä¾èµ–**
 
-* [NPOI](https://www.google.com/search?q=https://github.com/nissim-aj/npoi) \- ÓÃÓÚ¶ÁÈ¡ Excel ÎÄ¼þ¡£  
-* [Newtonsoft.Json](https://www.newtonsoft.com/json) \- ÓÃÓÚÊý¾ÝÐòÁÐ»¯ºÍ¸¨ÖúÀà¡£  
-* [Microsoft.CodeAnalysis.CSharp](https://www.nuget.org/packages/Microsoft.CodeAnalysis.CSharp/) (Roslyn) \- ÓÃÓÚ¶¯Ì¬±àÒë C\# ´úÂë¡£
+* [NPOI](https://www.google.com/search?q=https://github.com/nissim-aj/npoi) \- ç”¨äºŽè¯»å– Excel æ–‡ä»¶ã€‚  
+* [Newtonsoft.Json](https://www.newtonsoft.com/json) \- ç”¨äºŽæ•°æ®åºåˆ—åŒ–å’Œè¾…åŠ©ç±»ã€‚  
+* [Microsoft.CodeAnalysis.CSharp](https://www.nuget.org/packages/Microsoft.CodeAnalysis.CSharp/) (Roslyn) \- ç”¨äºŽåŠ¨æ€ç¼–è¯‘ C\# ä»£ç ã€‚
 
-## **Ðí¿ÉÖ¤**
+## **è®¸å¯è¯**
 
-±¾ÏîÄ¿²ÉÓÃ [MIT](https://opensource.org/licenses/MIT) Ðí¿ÉÖ¤¡£
+æœ¬é¡¹ç›®é‡‡ç”¨ [MIT](https://opensource.org/licenses/MIT) è®¸å¯è¯ã€‚

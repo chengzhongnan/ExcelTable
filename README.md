@@ -28,20 +28,23 @@ In game development and other applications requiring frequent configuration adju
 
 In the tool's execution directory, create and configure AppConfig.xml:
 
-\<?xml version="1.0" encoding="utf-8" ?\>  
-\<Configuration\>  
-  \<\!-- Relative paths (to the tool's .exe) are recommended for portability. \--\>  
-  \<Paths\>  
-    \<\!-- Input directory containing all .xlsx files \--\>  
-    \<InputPath\>xlsx\</InputPath\>  
-    \<\!-- Root output directory for all generated files \--\>  
-    \<OutputPath\>output\</OutputPath\>  
-  \</Paths\>  
-  \<Settings\>  
-    \<\!-- Assembly name for the generated DLL, also used as the root namespace. \--\>  
-    \<AssemblyName\>MyGame.Configs\</AssemblyName\>  
-  \</Settings\>  
-\</Configuration\>
+```
+<?xml version="1.0" encoding="utf-8" ?>  
+<Configuration>  
+  <!-- 推荐使用相对于此工具 .exe 的相对路径 -->  
+  <Paths>  
+    <!-- 包含所有 .xlsx 文件的输入文件夹 -->  
+    <InputPath>xlsx</InputPath>  
+    <!-- 所有生成文件的根输出文件夹 -->  
+    <OutputPath>output</OutputPath>  
+  </Paths>  
+  <Settings>  
+    <!-- 生成的 DLL 的程序集名称，也将是 C# 类的根命名空间 -->  
+    <AssemblyName>MyGame.Configs</AssemblyName>  
+  </Settings>  
+</Configuration>
+
+```
 
 #### **3\. Excel File Specification**
 
@@ -72,29 +75,30 @@ Or simply execute the compiled .exe. The tool will generate DLL, Schemas, and Js
 
 1. **Reference the DLL**: Copy MyGame.Configs.dll and MyGame.Configs.xml from the output/DLL/ directory into your main project and add a reference to the DLL.  
 2. **Write Loading Code**: In your main project, use the DeserializerFactory helper class (which can be copied from the tool's exception message or pre-added to your project) to load the data.  
-   using MyGame.Configs; // Import the generated namespace  
+   ``` 
+   using MyGame.Configs;  
    using System.Reflection;
 
    public class GameInitializer  
    {  
        public void Initialize()  
        {  
-           // Get the assembly of the config DLL  
-           var configAssembly \= typeof(DataManager).Assembly;
+           // 获取配置 DLL 的程序集  
+           var configAssembly = typeof(DataManager).Assembly;
 
-           // Use the factory to automatically create JSON deserializers for all tables  
-           var deserializers \= DeserializerFactory.CreateJsonDeserializersForAllTables(configAssembly, "MyGame.Configs");
+           // 使用工厂方法自动创建所有表格的 JSON 解析器  
+           var deserializers = DeserializerFactory.CreateJsonDeserializersForAllTables(configAssembly, "MyGame.Configs");
 
-           // Option 1: Load from embedded resources (for release builds)  
+           // 方式一：从 DLL 内嵌资源加载 (用于正式发布)  
            DataManager.LoadAllFromEmbedded(configAssembly, deserializers);
 
-           // Option 2: Load from an external directory (for development)  
-           // string configPath \= "path/to/your/json/files";  
+           // 方式二：从外部文件夹加载 (用于开发调试)  
+           // string configPath = "path/to/your/json/files";  
            // DataManager.LoadAllFromDirectory(configPath, deserializers, ".json");
 
-           // \--- Loading complete, safe to use \---  
-           var boss \= DataManager.GetBossById(1001);  
-           if (boss \!= null)  
+           // --- 加载完成，可以安全使用了 ---  
+           var boss = DataManager.GetBossById(1001);  
+           if (boss != null)  
            {  
                Console.WriteLine($"Boss Name: {boss.Name}, HP: {boss.BaseProperty.Hp}");  
            }  
@@ -124,6 +128,8 @@ Or simply execute the compiled .exe. The tool will generate DLL, Schemas, and Js
             return deserializers;
        }
    }
+
+```
 
 ## **Project Dependencies**
 
