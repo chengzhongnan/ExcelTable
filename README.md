@@ -129,7 +129,6 @@ Or simply execute the compiled .exe. The tool will generate DLL, Schemas, and Js
        }
    }
 
-```
 
 ## **Project Dependencies**
 
