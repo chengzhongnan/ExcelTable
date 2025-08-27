@@ -48,7 +48,9 @@ In the tool's execution directory, create and configure AppConfig.xml:
 
 #### **3\. Excel File Specification**
 
-For the tool to parse correctly, your Excel files must adhere to the following **four-row header** structure:
+* Sheet Naming: For a sheet to be processed, its name must end with _Table (e.g., Boss_Table).
+
+* Header Structure: The sheet must follow the four-row header structure below:
 
 | Row \# | Purpose | Example |
 | :---- | :---- | :---- |
